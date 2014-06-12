@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CLLocationManagerDelegate>{
+        CLLocationManager *locationManager;
+}
 
+@property(nonatomic) double oneQuarter;
+@property(nonatomic) double twoQuarter;
+@property(nonatomic) double threeQuarter;
+@property(nonatomic) double fourQuarter;
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (strong,nonatomic)NSString* xValue;
+@property (strong,nonatomic)NSString* yValue;
+@property (strong,nonatomic)NSString* zValue;
+@property (strong,nonatomic)NSString* latitude;
+@property (strong,nonatomic)NSString* longitude;
+@property (nonatomic, copy)NSArray*  beaconArray;
+@property (nonatomic, strong)NSString *outputString;
+@property (nonatomic) bool flag;
+@property (nonatomic,strong)NSString *timeString;
+@property (nonatomic,strong)NSString *name;
 @end

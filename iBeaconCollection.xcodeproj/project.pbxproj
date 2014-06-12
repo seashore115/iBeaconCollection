@@ -22,6 +22,43 @@
 		18270CB0193FB44A007064A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18270C8F193FB449007064A5 /* UIKit.framework */; };
 		18270CB8193FB44A007064A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18270CB6193FB44A007064A5 /* InfoPlist.strings */; };
 		18270CBA193FB44A007064A5 /* iBeaconCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CB9193FB44A007064A5 /* iBeaconCollectionTests.m */; };
+		18270CC4193FB537007064A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18270CC3193FB537007064A5 /* CoreLocation.framework */; };
+		18270CD4193FB573007064A5 /* AVCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CC7193FB573007064A5 /* AVCaptureManager.m */; };
+		18270CD5193FB573007064A5 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18270CC8193FB573007064A5 /* libEstimoteSDK.a */; };
+		18270CD6193FB573007064A5 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18270CD1193FB573007064A5 /* SVProgressHUD.bundle */; };
+		18270CD7193FB573007064A5 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CD3193FB573007064A5 /* SVProgressHUD.m */; };
+		18270CDA193FBB53007064A5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18270CD9193FBB53007064A5 /* Accelerate.framework */; };
+		18270CDC193FC88E007064A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18270CDB193FC88E007064A5 /* SystemConfiguration.framework */; };
+		18270CDE19401F88007064A5 /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270CDD19401F88007064A5 /* video_icon.png */; };
+		18270CE11940D4BF007064A5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CE01940D4BF007064A5 /* MainViewController.m */; };
+		18270CE81940D676007064A5 /* MHTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CE61940D676007064A5 /* MHTextField.m */; };
+		18270CEB1940F24D007064A5 /* DemoTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CE91940F24D007064A5 /* DemoTextField.m */; };
+		18270CED1940F444007064A5 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18270CEC1940F444007064A5 /* background.jpg */; };
+		18270CF21940FA0F007064A5 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CEE1940FA0F007064A5 /* UIImage+Additions.m */; };
+		18270CF31940FA0F007064A5 /* PBFlatRoundedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CF01940FA0F007064A5 /* PBFlatRoundedImageView.m */; };
+		18270CF51940FA8B007064A5 /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270CF41940FA8B007064A5 /* icon_video.png */; };
+		18270CF91940FB3A007064A5 /* PBFlatSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CF81940FB3A007064A5 /* PBFlatSettings.m */; };
+		18270CFC1940FB70007064A5 /* PBFlatSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270CFA1940FB70007064A5 /* PBFlatSegmentedControl.m */; };
+		18270D051940FE70007064A5 /* supportcat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270CFE1940FE70007064A5 /* supportcat@2x.png */; };
+		18270D061940FE70007064A5 /* original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270CFF1940FE70007064A5 /* original@2x.png */; };
+		18270D071940FE70007064A5 /* introBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270D001940FE70007064A5 /* introBg@2x.png */; };
+		18270D081940FE70007064A5 /* femalecodertocat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270D011940FE70007064A5 /* femalecodertocat@2x.png */; };
+		18270D091940FE70007064A5 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270D021940FE70007064A5 /* 3.png */; };
+		18270D0A1940FE70007064A5 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270D031940FE70007064A5 /* 2.png */; };
+		18270D0B1940FE70007064A5 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18270D041940FE70007064A5 /* 1.png */; };
+		18270D101940FEBB007064A5 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270D0C1940FEBB007064A5 /* EAIntroView.m */; };
+		18270D111940FEBB007064A5 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270D0E1940FEBB007064A5 /* EAIntroPage.m */; };
+		18270D5B194222EE007064A5 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18270D5A194222EE007064A5 /* MenuViewController.m */; };
+		182DF73219461F7E004EE702 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DF73119461F7E004EE702 /* DetailViewController.m */; };
+		182DF7E719465F1E004EE702 /* BRFlabbyTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DF7E219465F1E004EE702 /* BRFlabbyTableManager.m */; };
+		182DF7E819465F1E004EE702 /* BRFlabbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DF7E419465F1E004EE702 /* BRFlabbyTableViewCell.m */; };
+		182DF7E919465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DF7E619465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m */; };
+		1845022C1947717000F641C0 /* UrlClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845022B1947717000F641C0 /* UrlClass.m */; };
+		1845022E1947AC9F00F641C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1845022D1947AC9F00F641C0 /* MapKit.framework */; };
+		185404451949112C00288EDF /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 185404411949112C00288EDF /* UIColor-Expanded.m */; };
+		185404461949112C00288EDF /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 185404421949112C00288EDF /* MAConfirmButton.m */; };
+		185D3F3E1948A7D7007AABFD /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3F3D1948A7D7007AABFD /* DisplayViewController.m */; };
+		185D3F401948AD85007AABFD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D3F3F1948AD85007AABFD /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +92,69 @@
 		18270CB5193FB44A007064A5 /* iBeaconCollectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBeaconCollectionTests-Info.plist"; sourceTree = "<group>"; };
 		18270CB7193FB44A007064A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		18270CB9193FB44A007064A5 /* iBeaconCollectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBeaconCollectionTests.m; sourceTree = "<group>"; };
+		18270CC3193FB537007064A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		18270CC6193FB573007064A5 /* AVCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCaptureManager.h; sourceTree = "<group>"; };
+		18270CC7193FB573007064A5 /* AVCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCaptureManager.m; sourceTree = "<group>"; };
+		18270CC8193FB573007064A5 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		18270CC9193FB573007064A5 /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		18270CCA193FB573007064A5 /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
+		18270CCB193FB573007064A5 /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
+		18270CCC193FB573007064A5 /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		18270CCD193FB573007064A5 /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
+		18270CD0193FB573007064A5 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		18270CD1193FB573007064A5 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		18270CD2193FB573007064A5 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		18270CD3193FB573007064A5 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		18270CD9193FBB53007064A5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		18270CDB193FC88E007064A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18270CDD19401F88007064A5 /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = video_icon.png; path = ../video_icon.png; sourceTree = "<group>"; };
+		18270CDF1940D4BF007064A5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		18270CE01940D4BF007064A5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		18270CE61940D676007064A5 /* MHTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTextField.m; sourceTree = "<group>"; };
+		18270CE71940D676007064A5 /* MHTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTextField.h; sourceTree = "<group>"; };
+		18270CE91940F24D007064A5 /* DemoTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTextField.m; sourceTree = "<group>"; };
+		18270CEA1940F24D007064A5 /* DemoTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTextField.h; sourceTree = "<group>"; };
+		18270CEC1940F444007064A5 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		18270CEE1940FA0F007064A5 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
+		18270CEF1940FA0F007064A5 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		18270CF01940FA0F007064A5 /* PBFlatRoundedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFlatRoundedImageView.m; sourceTree = "<group>"; };
+		18270CF11940FA0F007064A5 /* PBFlatRoundedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFlatRoundedImageView.h; sourceTree = "<group>"; };
+		18270CF41940FA8B007064A5 /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_video.png; sourceTree = "<group>"; };
+		18270CF71940FB03007064A5 /* PBFlatSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFlatSettings.h; sourceTree = "<group>"; };
+		18270CF81940FB3A007064A5 /* PBFlatSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFlatSettings.m; sourceTree = "<group>"; };
+		18270CFA1940FB70007064A5 /* PBFlatSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBFlatSegmentedControl.m; sourceTree = "<group>"; };
+		18270CFB1940FB70007064A5 /* PBFlatSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBFlatSegmentedControl.h; sourceTree = "<group>"; };
+		18270CFE1940FE70007064A5 /* supportcat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "supportcat@2x.png"; sourceTree = "<group>"; };
+		18270CFF1940FE70007064A5 /* original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "original@2x.png"; sourceTree = "<group>"; };
+		18270D001940FE70007064A5 /* introBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "introBg@2x.png"; sourceTree = "<group>"; };
+		18270D011940FE70007064A5 /* femalecodertocat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "femalecodertocat@2x.png"; sourceTree = "<group>"; };
+		18270D021940FE70007064A5 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		18270D031940FE70007064A5 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		18270D041940FE70007064A5 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		18270D0C1940FEBB007064A5 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		18270D0D1940FEBB007064A5 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		18270D0E1940FEBB007064A5 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		18270D0F1940FEBB007064A5 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		18270D59194222EE007064A5 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		18270D5A194222EE007064A5 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		182DF73019461F7E004EE702 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		182DF73119461F7E004EE702 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		182DF7E119465F1E004EE702 /* BRFlabbyTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRFlabbyTableManager.h; sourceTree = "<group>"; };
+		182DF7E219465F1E004EE702 /* BRFlabbyTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRFlabbyTableManager.m; sourceTree = "<group>"; };
+		182DF7E319465F1E004EE702 /* BRFlabbyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRFlabbyTableViewCell.h; sourceTree = "<group>"; };
+		182DF7E419465F1E004EE702 /* BRFlabbyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRFlabbyTableViewCell.m; sourceTree = "<group>"; };
+		182DF7E519465F1E004EE702 /* NSIndexPath+BRFlabbyTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+BRFlabbyTable.h"; sourceTree = "<group>"; };
+		182DF7E619465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+BRFlabbyTable.m"; sourceTree = "<group>"; };
+		1845022A1947717000F641C0 /* UrlClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlClass.h; sourceTree = "<group>"; };
+		1845022B1947717000F641C0 /* UrlClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlClass.m; sourceTree = "<group>"; };
+		1845022D1947AC9F00F641C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		185404411949112C00288EDF /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
+		185404421949112C00288EDF /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
+		185404431949112C00288EDF /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
+		185404441949112C00288EDF /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
+		185D3F3C1948A7D7007AABFD /* DisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
+		185D3F3D1948A7D7007AABFD /* DisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
+		185D3F3F1948AD85007AABFD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +162,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185D3F401948AD85007AABFD /* MediaPlayer.framework in Frameworks */,
+				1845022E1947AC9F00F641C0 /* MapKit.framework in Frameworks */,
+				18270CDC193FC88E007064A5 /* SystemConfiguration.framework in Frameworks */,
+				18270CDA193FBB53007064A5 /* Accelerate.framework in Frameworks */,
+				18270CC4193FB537007064A5 /* CoreLocation.framework in Frameworks */,
 				18270C8E193FB449007064A5 /* CoreGraphics.framework in Frameworks */,
 				18270C90193FB449007064A5 /* UIKit.framework in Frameworks */,
 				18270C8C193FB449007064A5 /* Foundation.framework in Frameworks */,
+				18270CD5193FB573007064A5 /* libEstimoteSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +190,12 @@
 		18270C7F193FB449007064A5 = {
 			isa = PBXGroup;
 			children = (
+				182DF7E019465F1E004EE702 /* Classes */,
+				18270CFD1940FE20007064A5 /* Resources */,
+				18270CE21940D64F007064A5 /* UI Group */,
+				18270CD8193FB57E007064A5 /* Beacon SDK */,
+				18270CC5193FB573007064A5 /* AVCaptureManager */,
+				18270CCE193FB573007064A5 /* vendor */,
 				18270C91193FB449007064A5 /* iBeaconCollection */,
 				18270CB3193FB44A007064A5 /* iBeaconCollectionTests */,
 				18270C8A193FB449007064A5 /* Frameworks */,
@@ -103,6 +215,12 @@
 		18270C8A193FB449007064A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				185D3F3F1948AD85007AABFD /* MediaPlayer.framework */,
+				1845022D1947AC9F00F641C0 /* MapKit.framework */,
+				18270CDB193FC88E007064A5 /* SystemConfiguration.framework */,
+				18270CD9193FBB53007064A5 /* Accelerate.framework */,
+				18270CC8193FB573007064A5 /* libEstimoteSDK.a */,
+				18270CC3193FB537007064A5 /* CoreLocation.framework */,
 				18270C8B193FB449007064A5 /* Foundation.framework */,
 				18270C8D193FB449007064A5 /* CoreGraphics.framework */,
 				18270C8F193FB449007064A5 /* UIKit.framework */,
@@ -114,6 +232,16 @@
 		18270C91193FB449007064A5 /* iBeaconCollection */ = {
 			isa = PBXGroup;
 			children = (
+				1845022A1947717000F641C0 /* UrlClass.h */,
+				1845022B1947717000F641C0 /* UrlClass.m */,
+				185D3F3C1948A7D7007AABFD /* DisplayViewController.h */,
+				185D3F3D1948A7D7007AABFD /* DisplayViewController.m */,
+				182DF73019461F7E004EE702 /* DetailViewController.h */,
+				182DF73119461F7E004EE702 /* DetailViewController.m */,
+				18270D59194222EE007064A5 /* MenuViewController.h */,
+				18270D5A194222EE007064A5 /* MenuViewController.m */,
+				18270CDF1940D4BF007064A5 /* MainViewController.h */,
+				18270CE01940D4BF007064A5 /* MainViewController.m */,
 				18270C9A193FB449007064A5 /* AppDelegate.h */,
 				18270C9B193FB449007064A5 /* AppDelegate.m */,
 				18270C9D193FB449007064A5 /* Main_iPhone.storyboard */,
@@ -153,6 +281,103 @@
 				18270CB6193FB44A007064A5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18270CC5193FB573007064A5 /* AVCaptureManager */ = {
+			isa = PBXGroup;
+			children = (
+				18270CC6193FB573007064A5 /* AVCaptureManager.h */,
+				18270CC7193FB573007064A5 /* AVCaptureManager.m */,
+			);
+			path = AVCaptureManager;
+			sourceTree = "<group>";
+		};
+		18270CCE193FB573007064A5 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				18270CCF193FB573007064A5 /* SVProgressHUD */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		18270CCF193FB573007064A5 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18270CD0193FB573007064A5 /* SVProgressHUD-Prefix.pch */,
+				18270CD1193FB573007064A5 /* SVProgressHUD.bundle */,
+				18270CD2193FB573007064A5 /* SVProgressHUD.h */,
+				18270CD3193FB573007064A5 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		18270CD8193FB57E007064A5 /* Beacon SDK */ = {
+			isa = PBXGroup;
+			children = (
+				18270CC9193FB573007064A5 /* ESTBeaconUpdateInfo.h */,
+				18270CCA193FB573007064A5 /* ESTBeaconRegion.h */,
+				18270CCB193FB573007064A5 /* ESTBeaconManager.h */,
+				18270CCC193FB573007064A5 /* ESTBeaconDefinitions.h */,
+				18270CCD193FB573007064A5 /* ESTBeacon.h */,
+			);
+			name = "Beacon SDK";
+			sourceTree = "<group>";
+		};
+		18270CE21940D64F007064A5 /* UI Group */ = {
+			isa = PBXGroup;
+			children = (
+				185404411949112C00288EDF /* UIColor-Expanded.m */,
+				185404421949112C00288EDF /* MAConfirmButton.m */,
+				185404431949112C00288EDF /* UIColor-Expanded.h */,
+				185404441949112C00288EDF /* MAConfirmButton.h */,
+				18270D0C1940FEBB007064A5 /* EAIntroView.m */,
+				18270D0D1940FEBB007064A5 /* EAIntroView.h */,
+				18270D0E1940FEBB007064A5 /* EAIntroPage.m */,
+				18270D0F1940FEBB007064A5 /* EAIntroPage.h */,
+				18270CFA1940FB70007064A5 /* PBFlatSegmentedControl.m */,
+				18270CFB1940FB70007064A5 /* PBFlatSegmentedControl.h */,
+				18270CF81940FB3A007064A5 /* PBFlatSettings.m */,
+				18270CF71940FB03007064A5 /* PBFlatSettings.h */,
+				18270CEE1940FA0F007064A5 /* UIImage+Additions.m */,
+				18270CEF1940FA0F007064A5 /* UIImage+Additions.h */,
+				18270CF01940FA0F007064A5 /* PBFlatRoundedImageView.m */,
+				18270CF11940FA0F007064A5 /* PBFlatRoundedImageView.h */,
+				18270CE91940F24D007064A5 /* DemoTextField.m */,
+				18270CEA1940F24D007064A5 /* DemoTextField.h */,
+				18270CE61940D676007064A5 /* MHTextField.m */,
+				18270CE71940D676007064A5 /* MHTextField.h */,
+			);
+			name = "UI Group";
+			sourceTree = "<group>";
+		};
+		18270CFD1940FE20007064A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18270CDD19401F88007064A5 /* video_icon.png */,
+				18270CFE1940FE70007064A5 /* supportcat@2x.png */,
+				18270CFF1940FE70007064A5 /* original@2x.png */,
+				18270D001940FE70007064A5 /* introBg@2x.png */,
+				18270D011940FE70007064A5 /* femalecodertocat@2x.png */,
+				18270D021940FE70007064A5 /* 3.png */,
+				18270D031940FE70007064A5 /* 2.png */,
+				18270D041940FE70007064A5 /* 1.png */,
+				18270CF41940FA8B007064A5 /* icon_video.png */,
+				18270CEC1940F444007064A5 /* background.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		182DF7E019465F1E004EE702 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				182DF7E119465F1E004EE702 /* BRFlabbyTableManager.h */,
+				182DF7E219465F1E004EE702 /* BRFlabbyTableManager.m */,
+				182DF7E319465F1E004EE702 /* BRFlabbyTableViewCell.h */,
+				182DF7E419465F1E004EE702 /* BRFlabbyTableViewCell.m */,
+				182DF7E519465F1E004EE702 /* NSIndexPath+BRFlabbyTable.h */,
+				182DF7E619465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +456,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18270D071940FE70007064A5 /* introBg@2x.png in Resources */,
+				18270CF51940FA8B007064A5 /* icon_video.png in Resources */,
+				18270D0A1940FE70007064A5 /* 2.png in Resources */,
+				18270CD6193FB573007064A5 /* SVProgressHUD.bundle in Resources */,
 				18270CA2193FB449007064A5 /* Main_iPad.storyboard in Resources */,
+				18270CED1940F444007064A5 /* background.jpg in Resources */,
+				18270D051940FE70007064A5 /* supportcat@2x.png in Resources */,
+				18270D081940FE70007064A5 /* femalecodertocat@2x.png in Resources */,
 				18270CA7193FB449007064A5 /* Images.xcassets in Resources */,
+				18270D0B1940FE70007064A5 /* 1.png in Resources */,
+				18270D091940FE70007064A5 /* 3.png in Resources */,
 				18270C9F193FB449007064A5 /* Main_iPhone.storyboard in Resources */,
+				18270D061940FE70007064A5 /* original@2x.png in Resources */,
+				18270CDE19401F88007064A5 /* video_icon.png in Resources */,
 				18270C96193FB449007064A5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,9 +489,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18270CEB1940F24D007064A5 /* DemoTextField.m in Sources */,
+				18270CFC1940FB70007064A5 /* PBFlatSegmentedControl.m in Sources */,
+				18270CF31940FA0F007064A5 /* PBFlatRoundedImageView.m in Sources */,
+				182DF7E819465F1E004EE702 /* BRFlabbyTableViewCell.m in Sources */,
+				185D3F3E1948A7D7007AABFD /* DisplayViewController.m in Sources */,
+				182DF73219461F7E004EE702 /* DetailViewController.m in Sources */,
 				18270CA5193FB449007064A5 /* ViewController.m in Sources */,
+				18270D5B194222EE007064A5 /* MenuViewController.m in Sources */,
+				18270CE11940D4BF007064A5 /* MainViewController.m in Sources */,
+				185404461949112C00288EDF /* MAConfirmButton.m in Sources */,
 				18270C9C193FB449007064A5 /* AppDelegate.m in Sources */,
+				18270CF21940FA0F007064A5 /* UIImage+Additions.m in Sources */,
+				18270D111940FEBB007064A5 /* EAIntroPage.m in Sources */,
+				18270CE81940D676007064A5 /* MHTextField.m in Sources */,
+				18270CD7193FB573007064A5 /* SVProgressHUD.m in Sources */,
+				18270D101940FEBB007064A5 /* EAIntroView.m in Sources */,
+				1845022C1947717000F641C0 /* UrlClass.m in Sources */,
+				18270CF91940FB3A007064A5 /* PBFlatSettings.m in Sources */,
+				182DF7E719465F1E004EE702 /* BRFlabbyTableManager.m in Sources */,
 				18270C98193FB449007064A5 /* main.m in Sources */,
+				182DF7E919465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m in Sources */,
+				185404451949112C00288EDF /* UIColor-Expanded.m in Sources */,
+				18270CD4193FB573007064A5 /* AVCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +649,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeaconCollection/iBeaconCollection-Prefix.pch";
 				INFOPLIST_FILE = "iBeaconCollection/iBeaconCollection-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -406,6 +666,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBeaconCollection/iBeaconCollection-Prefix.pch";
 				INFOPLIST_FILE = "iBeaconCollection/iBeaconCollection-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,6 +734,7 @@
 				18270CBF193FB44A007064A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18270CC0193FB44A007064A5 /* Build configuration list for PBXNativeTarget "iBeaconCollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +743,7 @@
 				18270CC2193FB44A007064A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
