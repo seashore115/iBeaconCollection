@@ -10,6 +10,7 @@
 #import "MenuViewController.h"
 #import "UrlClass.h"
 #import "ViewController.h"
+#import <Foundation/Foundation.h>
 
 @interface DetailViewController ()
 @property (nonatomic,strong)  NSMutableArray *routeArray;
@@ -101,7 +102,6 @@
             
         }
     }
-//    NSLog(@"%@",routeArray);
     
 }
 
@@ -128,7 +128,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 60;
+    return 1000;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -165,7 +165,10 @@
     //    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Video"];
-    viewController.name=[routeArray objectAtIndex:indexPath.row];
+    NSString *romeNameString=@"";
+    romeNameString=[[@"'" stringByAppendingString:[routeArray objectAtIndex:indexPath.row]] stringByAppendingString:@"'"];
+    NSLog(@"%@",romeNameString);
+    viewController.name=romeNameString;
     // setup "inner" view controller
     [self presentViewController:viewController animated:YES completion:nil];
     

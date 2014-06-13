@@ -24,4 +24,5 @@
 @property (nonatomic,strong)  NSString *linkUrl;
 @property(strong,nonatomic)CLLocation *currentLocation;
 
+
 @end

@@ -113,7 +113,7 @@
 {
     static NSString *CellIdentifier = @"parallaxCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Cell %d",), indexPath.row];
+//    cell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Cell %d",), indexPath.row];
     cell.imageView.image = self.tableItems[indexPath.row];
     
     return cell;

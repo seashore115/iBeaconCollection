@@ -124,6 +124,7 @@
         
         // setup "inner" view controller
         [UrlClass sharedManager].defaultUrl=[@"http://mcc-backend.appspot.com/mcc/floorplan/mapping/" stringByAppendingString: self.inputPlanId.text];
+        [UrlClass sharedManager].floorPlan=self.inputPlanId.text;
         viewController.floorPlanId=self.inputPlanId.text;
         
         [self presentViewController:navigationController animated:YES completion:nil];

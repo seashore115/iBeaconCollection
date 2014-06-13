@@ -10,7 +10,9 @@
 
 @interface UrlClass : NSObject{
      NSString *defaultUrl;
+    NSString *floorPlan;
 }
 @property(nonatomic,copy) NSString *defaultUrl;
+@property(nonatomic,copy) NSString *floorPlan;
 + (instancetype) sharedManager;
 @end

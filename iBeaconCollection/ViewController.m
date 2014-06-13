@@ -12,6 +12,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "ESTBeaconManager.h"
 #import "DisplayViewController.h"
+#import "UrlClass.h"
 
 
 @interface ViewController ()
@@ -51,6 +52,9 @@
 @synthesize outputString;
 @synthesize flag;
 @synthesize name;
+@synthesize time;
+@synthesize outputFrontString;
+@synthesize trimName;
 
 - (void)viewDidLoad
 {
@@ -110,6 +114,19 @@
     self.outerImage1 = [UIImage imageNamed:@"outer1"];
     self.outerImage2 = [UIImage imageNamed:@"outer2"];
     self.outerImageView.image = self.outerImage1;
+    
+    NSString *subName=@"";
+    subName=[name substringFromIndex:1];
+    trimName =[subName substringToIndex:[subName length]-1];
+    
+    //arff
+    NSString *outputRoomString=@"";
+    outputFrontString=@"";
+    outputFrontString=[[@"@relation " stringByAppendingString: [UrlClass sharedManager].floorPlan] stringByAppendingString: @"\n\n"];
+    outputFrontString=[outputFrontString stringByAppendingString: @"@attribute time date \"HH:mm:ss\"\n@attribute major numeric\n@attribute minor numeric\n@attribute distance numeric\n"];
+    outputRoomString=[@"@attribute room " stringByAppendingString: @"string\n"];
+    outputFrontString=[outputFrontString stringByAppendingString: outputRoomString];
+    outputFrontString=[[[[[outputFrontString  stringByAppendingString:@"@attribute x numeric\n"] stringByAppendingString: @"@attribute y numeric\n"] stringByAppendingString: @"@attribute z numeric\n"] stringByAppendingString: @"@attribute latitude numeric\n"] stringByAppendingString:@"@attribute longitude numeric\n\n@data\n"];
 }
 
 // ============================================================================
@@ -179,23 +196,32 @@
         
         //Read File in local
         NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString* filename=[NSString stringWithFormat:@"%@.arff",name];
+        NSString* filename=[NSString stringWithFormat:@"%@.arff",[UrlClass sharedManager].floorPlan];
         NSString* foofile = [documentsPath stringByAppendingPathComponent:filename];
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:foofile];
         NSError *csvError = NULL;
         if (fileExists) {
             NSString *string=[NSString stringWithContentsOfFile:foofile encoding:NSUTF8StringEncoding error:nil];
             outputString=[string stringByAppendingString:outputString];
-//            NSLog(@"+++++%@",outputString);
+            NSLog(@"\n+++++\n\n%@\n",outputString);
             [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
             NSLog(@"******%@",csvError);
         }else{
-            outputString=[@"\n" stringByAppendingString:outputString];
+            outputString=[outputFrontString stringByAppendingString:outputString];
             //        outputString=[@"major,minor,distance,room,x,y,z,latitude,longitude\n" stringByAppendingString:outputString];
 //            NSLog(@"$$$$$%@",outputString );
+            NSLog(@"\n first time +++++\n\n%@\n",outputString);
             [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
             NSLog(@"----%@",csvError);
         }
+        NSString *text=@"";
+        text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
+        NSString* textname=[NSString stringWithFormat:@"%@.text",trimName];
+        NSString* textfile = [documentsPath stringByAppendingPathComponent:textname];
+        NSError *textError=NULL;
+        [text writeToFile:textfile atomically:YES encoding:NSUTF8StringEncoding error:&textError];
+        NSLog(@"******%@",textError);
+
        // outputString=@"";
         
         ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
@@ -276,12 +302,16 @@
 
 
 -(void)beaconMessage{
-    
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"hh:mm:ss";
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    time = [dateFormatter stringFromDate:now];
     //Get Message
     for (ESTBeacon *beacon in beaconArray) {
         float rawDistance=[beacon.distance floatValue];
-        outputString=[outputString stringByAppendingFormat:@"%i,%i,%.3f,%@,%@,%@,%@,%@\n",[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,xValue,yValue,zValue,latitude,longitude];
-        NSLog(@"++++---- %@ ",outputString);
+        outputString=[outputString stringByAppendingFormat:@"%@,%i,%i,%.3f,%@,%.3f,%.3f,%.3f,%.3f,%.3f\n",time,[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,name,[xValue floatValue] ,[yValue floatValue],[zValue floatValue],[latitude floatValue],[longitude floatValue]];
+        NSLog(@"\n++++---- %@\n ",outputString);
     }
 }
 
@@ -333,7 +363,7 @@
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *filePath = nil;
         do
-            filePath =[NSString stringWithFormat:@"/%@/%@.mp4", documentsDirectory, name];
+            filePath =[NSString stringWithFormat:@"/%@/%@.mp4", documentsDirectory, trimName];
         while ([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
 //        NSURL *fileURL = [NSURL URLWithString:[@"file://" stringByAppendingString:filePath]];
         NSURL *fileURL =[NSURL fileURLWithPath:filePath];
@@ -407,7 +437,7 @@
 - (IBAction)Exit:(id)sender {
     UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Display"];
     DisplayViewController *viewController = navigationController.viewControllers[0];
-    viewController.fileName=name;
+    viewController.fileName=trimName;
     [self presentViewController:navigationController animated:YES completion:nil];
 
 }
