@@ -62,6 +62,8 @@
 		18792805194A2F27008443F5 /* Video-Icon-real.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792804194A2F27008443F5 /* Video-Icon-real.png */; };
 		18792807194A2FB1008443F5 /* Video_Icon-chu.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792806194A2FB1008443F5 /* Video_Icon-chu.png */; };
 		18792809194A6FE2008443F5 /* Video-Icon-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792808194A6FE2008443F5 /* Video-Icon-x.png */; };
+		18EED28D194F33BD00ABC7F8 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED28C194F33BD00ABC7F8 /* ImageViewController.m */; };
+		18EED28F194F38C300ABC7F8 /* backgrounds-vista.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EED28E194F38C300ABC7F8 /* backgrounds-vista.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,9 @@
 		18792804194A2F27008443F5 /* Video-Icon-real.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video-Icon-real.png"; sourceTree = "<group>"; };
 		18792806194A2FB1008443F5 /* Video_Icon-chu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video_Icon-chu.png"; sourceTree = "<group>"; };
 		18792808194A6FE2008443F5 /* Video-Icon-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video-Icon-x.png"; sourceTree = "<group>"; };
+		18EED28B194F33BD00ABC7F8 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		18EED28C194F33BD00ABC7F8 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		18EED28E194F38C300ABC7F8 /* backgrounds-vista.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgrounds-vista.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +201,6 @@
 		18270C7F193FB449007064A5 = {
 			isa = PBXGroup;
 			children = (
-				18792808194A6FE2008443F5 /* Video-Icon-x.png */,
-				18792806194A2FB1008443F5 /* Video_Icon-chu.png */,
-				18792804194A2F27008443F5 /* Video-Icon-real.png */,
 				182DF7E019465F1E004EE702 /* Classes */,
 				18270CFD1940FE20007064A5 /* Resources */,
 				18270CE21940D64F007064A5 /* UI Group */,
@@ -241,6 +243,8 @@
 		18270C91193FB449007064A5 /* iBeaconCollection */ = {
 			isa = PBXGroup;
 			children = (
+				18EED28B194F33BD00ABC7F8 /* ImageViewController.h */,
+				18EED28C194F33BD00ABC7F8 /* ImageViewController.m */,
 				1845022A1947717000F641C0 /* UrlClass.h */,
 				1845022B1947717000F641C0 /* UrlClass.m */,
 				185D3F3C1948A7D7007AABFD /* DisplayViewController.h */,
@@ -362,6 +366,10 @@
 		18270CFD1940FE20007064A5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18EED28E194F38C300ABC7F8 /* backgrounds-vista.png */,
+				18792808194A6FE2008443F5 /* Video-Icon-x.png */,
+				18792806194A2FB1008443F5 /* Video_Icon-chu.png */,
+				18792804194A2F27008443F5 /* Video-Icon-real.png */,
 				18270CDD19401F88007064A5 /* video_icon.png */,
 				18270CFE1940FE70007064A5 /* supportcat@2x.png */,
 				18270CFF1940FE70007064A5 /* original@2x.png */,
@@ -473,6 +481,7 @@
 				18270CA2193FB449007064A5 /* Main_iPad.storyboard in Resources */,
 				18270CED1940F444007064A5 /* background.jpg in Resources */,
 				18270D051940FE70007064A5 /* supportcat@2x.png in Resources */,
+				18EED28F194F38C300ABC7F8 /* backgrounds-vista.png in Resources */,
 				18270D081940FE70007064A5 /* femalecodertocat@2x.png in Resources */,
 				18270CA7193FB449007064A5 /* Images.xcassets in Resources */,
 				18270D0B1940FE70007064A5 /* 1.png in Resources */,
@@ -519,6 +528,7 @@
 				18270D101940FEBB007064A5 /* EAIntroView.m in Sources */,
 				1845022C1947717000F641C0 /* UrlClass.m in Sources */,
 				18270CF91940FB3A007064A5 /* PBFlatSettings.m in Sources */,
+				18EED28D194F33BD00ABC7F8 /* ImageViewController.m in Sources */,
 				182DF7E719465F1E004EE702 /* BRFlabbyTableManager.m in Sources */,
 				18270C98193FB449007064A5 /* main.m in Sources */,
 				182DF7E919465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m in Sources */,
@@ -666,6 +676,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -683,6 +694,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

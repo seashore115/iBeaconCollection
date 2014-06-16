@@ -60,6 +60,7 @@
             NSURL *url = [NSURL URLWithString:object];
             NSData *data = [[NSData alloc] initWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:data];
+//            NSLog(@"%f ----- %f",image.size.width,image.size.height);
             [self.tableItems addObject:image];
             
         }

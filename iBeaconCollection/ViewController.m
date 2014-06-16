@@ -51,10 +51,8 @@
 @synthesize beaconArray;
 @synthesize outputString;
 @synthesize flag;
-@synthesize name;
 @synthesize time;
 @synthesize outputFrontString;
-@synthesize trimName;
 
 - (void)viewDidLoad
 {
@@ -115,9 +113,9 @@
     self.outerImage2 = [UIImage imageNamed:@"outer2"];
     self.outerImageView.image = self.outerImage1;
     
-    NSString *subName=@"";
-    subName=[name substringFromIndex:1];
-    trimName =[subName substringToIndex:[subName length]-1];
+//    NSString *subName=@"";
+//    subName=[name substringFromIndex:1];
+//    trimName =[subName substringToIndex:[subName length]-1];
     
     //arff
     NSString *outputRoomString=@"";
@@ -216,7 +214,7 @@
         }
         NSString *text=@"";
         text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
-        NSString* textname=[NSString stringWithFormat:@"%@.text",trimName];
+        NSString* textname=[NSString stringWithFormat:@"%@.text",[[UrlClass sharedManager]currentRouteName]];
         NSString* textfile = [documentsPath stringByAppendingPathComponent:textname];
         NSError *textError=NULL;
         [text writeToFile:textfile atomically:YES encoding:NSUTF8StringEncoding error:&textError];
@@ -310,7 +308,7 @@
     //Get Message
     for (ESTBeacon *beacon in beaconArray) {
         float rawDistance=[beacon.distance floatValue];
-        outputString=[outputString stringByAppendingFormat:@"%@,%i,%i,%.3f,%@,%.3f,%.3f,%.3f,%.3f,%.3f\n",time,[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,name,[xValue floatValue] ,[yValue floatValue],[zValue floatValue],[latitude floatValue],[longitude floatValue]];
+        outputString=[outputString stringByAppendingFormat:@"%@,%i,%i,%.3f,%@,%.3f,%.3f,%.3f,%.3f,%.3f\n",time,[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,[UrlClass sharedManager].routeData,[xValue floatValue] ,[yValue floatValue],[zValue floatValue],[latitude floatValue],[longitude floatValue]];
         NSLog(@"\n++++---- %@\n ",outputString);
     }
 }
@@ -363,7 +361,7 @@
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString *filePath = nil;
         do
-            filePath =[NSString stringWithFormat:@"/%@/%@.mp4", documentsDirectory, trimName];
+            filePath =[NSString stringWithFormat:@"/%@/%@.mp4", documentsDirectory, [[UrlClass sharedManager] currentRouteName]];
         while ([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
 //        NSURL *fileURL = [NSURL URLWithString:[@"file://" stringByAppendingString:filePath]];
         NSURL *fileURL =[NSURL fileURLWithPath:filePath];
@@ -437,7 +435,7 @@
 - (IBAction)Exit:(id)sender {
     UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Display"];
     DisplayViewController *viewController = navigationController.viewControllers[0];
-    viewController.fileName=trimName;
+    viewController.fileName=[[UrlClass sharedManager] currentRouteName];
     [self presentViewController:navigationController animated:YES completion:nil];
 
 }

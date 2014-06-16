@@ -27,10 +27,9 @@
 @property (nonatomic, strong)NSString *outputString;
 @property (nonatomic) bool flag;
 @property (nonatomic,strong)NSString *timeString;
-@property (nonatomic,strong)NSString *name;
 @property (nonatomic,strong)NSString *time;
 @property (strong,nonatomic)NSString* outputFrontString;
-@property (nonatomic,strong)NSString* trimName;
+
 
 
 @end

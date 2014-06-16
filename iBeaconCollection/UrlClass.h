@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface UrlClass : NSObject{
-     NSString *defaultUrl;
+    NSString *defaultUrl;
     NSString *floorPlan;
+    NSString *currentRouteName;
+    NSString *routeData;
 }
 @property(nonatomic,copy) NSString *defaultUrl;
 @property(nonatomic,copy) NSString *floorPlan;
+@property(nonatomic,copy) NSString *currentRouteName;
+@property(nonatomic,copy) NSString *routeData;
 + (instancetype) sharedManager;
 @end

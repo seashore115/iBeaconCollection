@@ -11,6 +11,8 @@
 @implementation UrlClass
 @synthesize defaultUrl;
 @synthesize floorPlan;
+@synthesize currentRouteName;
+@synthesize routeData;
 + (instancetype) sharedManager {
     static UrlClass *sharedMyManager = nil;
     static dispatch_once_t onceToken;
@@ -25,6 +27,8 @@
     if (self) {
         defaultUrl = @"http://mcc-backend.appspot.com/mcc/floorplan/mapping/" ;
         floorPlan=@"";
+        currentRouteName=@"";
+        routeData=@"";
     }
     return self;
 }

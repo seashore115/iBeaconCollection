@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 #import "MenuViewController.h"
 #import "UrlClass.h"
-#import "ViewController.h"
+#import "ImageViewController.h"
 #import <Foundation/Foundation.h>
 
 @interface DetailViewController ()
@@ -163,14 +163,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //    [self performSegueWithIdentifier:@"Detail" sender:self];
     //    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Video"];
+    
+    
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Image"];
+    ImageViewController *viewController = navigationController.viewControllers[0];
     NSString *romeNameString=@"";
     romeNameString=[[@"'" stringByAppendingString:[routeArray objectAtIndex:indexPath.row]] stringByAppendingString:@"'"];
-    NSLog(@"%@",romeNameString);
-    viewController.name=romeNameString;
-    // setup "inner" view controller
-    [self presentViewController:viewController animated:YES completion:nil];
+    [UrlClass sharedManager].currentRouteName=[routeArray objectAtIndex:indexPath.row];
+    [UrlClass sharedManager].routeData=romeNameString;
+    [self presentViewController:navigationController animated:YES completion:nil];
+
+    
+//    ImageViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Video"];
+//    NSString *romeNameString=@"";
+//    romeNameString=[[@"'" stringByAppendingString:[routeArray objectAtIndex:indexPath.row]] stringByAppendingString:@"'"];
+//    [UrlClass sharedManager].currentRouteName=romeNameString;
+//    viewController.name=romeNameString;
+//    // setup "inner" view controller
+//    [self presentViewController:viewController animated:YES completion:nil];
     
 }
 
