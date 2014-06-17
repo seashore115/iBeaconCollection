@@ -57,6 +57,7 @@
 		1845022E1947AC9F00F641C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1845022D1947AC9F00F641C0 /* MapKit.framework */; };
 		185404451949112C00288EDF /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 185404411949112C00288EDF /* UIColor-Expanded.m */; };
 		185404461949112C00288EDF /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 185404421949112C00288EDF /* MAConfirmButton.m */; };
+		185A75AE19509E34002DEBCF /* CUSFlashLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185A75AD19509E34002DEBCF /* CUSFlashLabel.m */; };
 		185D3F3E1948A7D7007AABFD /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D3F3D1948A7D7007AABFD /* DisplayViewController.m */; };
 		185D3F401948AD85007AABFD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D3F3F1948AD85007AABFD /* MediaPlayer.framework */; };
 		18792805194A2F27008443F5 /* Video-Icon-real.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792804194A2F27008443F5 /* Video-Icon-real.png */; };
@@ -157,6 +158,8 @@
 		185404421949112C00288EDF /* MAConfirmButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAConfirmButton.m; sourceTree = "<group>"; };
 		185404431949112C00288EDF /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		185404441949112C00288EDF /* MAConfirmButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAConfirmButton.h; sourceTree = "<group>"; };
+		185A75AC19509E34002DEBCF /* CUSFlashLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CUSFlashLabel.h; sourceTree = "<group>"; };
+		185A75AD19509E34002DEBCF /* CUSFlashLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CUSFlashLabel.m; sourceTree = "<group>"; };
 		185D3F3C1948A7D7007AABFD /* DisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
 		185D3F3D1948A7D7007AABFD /* DisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
 		185D3F3F1948AD85007AABFD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -339,6 +342,8 @@
 		18270CE21940D64F007064A5 /* UI Group */ = {
 			isa = PBXGroup;
 			children = (
+				185A75AC19509E34002DEBCF /* CUSFlashLabel.h */,
+				185A75AD19509E34002DEBCF /* CUSFlashLabel.m */,
 				185404411949112C00288EDF /* UIColor-Expanded.m */,
 				185404421949112C00288EDF /* MAConfirmButton.m */,
 				185404431949112C00288EDF /* UIColor-Expanded.h */,
@@ -525,6 +530,7 @@
 				18270D111940FEBB007064A5 /* EAIntroPage.m in Sources */,
 				18270CE81940D676007064A5 /* MHTextField.m in Sources */,
 				18270CD7193FB573007064A5 /* SVProgressHUD.m in Sources */,
+				185A75AE19509E34002DEBCF /* CUSFlashLabel.m in Sources */,
 				18270D101940FEBB007064A5 /* EAIntroView.m in Sources */,
 				1845022C1947717000F641C0 /* UrlClass.m in Sources */,
 				18270CF91940FB3A007064A5 /* PBFlatSettings.m in Sources */,

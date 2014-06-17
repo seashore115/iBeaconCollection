@@ -11,13 +11,15 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "ViewController.h"
+#import "CUSFlashLabel.h"
 
 @interface ImageViewController ()
-
+@property(nonatomic,strong) CUSFlashLabel *roomTitle;
 @end
 
 @implementation ImageViewController
 @synthesize imageView;
+@synthesize roomTitle;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.confirm.layer.cornerRadius = 15; // this value vary as per your desire
     self.confirm.clipsToBounds = YES;
     [[self.confirm layer] setBorderWidth:1.0f];
@@ -80,7 +83,41 @@
         UIGraphicsEndImageContext();
         imageView.image=result;
     }
+    
+    roomTitle = [[CUSFlashLabel alloc]initWithFrame:CGRectMake(45, 70, 300, 50)];
+    [roomTitle setFont:[UIFont systemFontOfSize:20]];
+    [roomTitle setContentMode:UIViewContentModeTop];
+    [roomTitle setSpotlightColor:[UIColor yellowColor]];
+    [roomTitle startAnimating];
+    [self.view addSubview:roomTitle];
+    roomTitle.text=[[UrlClass sharedManager] currentRouteName];
+    
+
 }
+
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer {
+    float imageScale = sqrtf(recognizer.view.transform.a * recognizer.view.transform.a +
+                             recognizer.view.transform.c * recognizer.view.transform.c);
+    if ((recognizer.scale > 1.0) && (imageScale >= 2.00)) {
+        return;
+    }
+    if ((recognizer.scale < 1.0) && (imageScale <= 0.75)) {
+        return;
+    }
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+    recognizer.scale = 1.0;
+}
+
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
+    
+    CGPoint translation = [recognizer translationInView:self.view];
+    recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                         recognizer.view.center.y + translation.y);
+    [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

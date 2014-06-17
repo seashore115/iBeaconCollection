@@ -119,9 +119,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="326" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-jV-ski">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-jV-ski">
                                 <rect key="frame" x="0.0" y="160" width="320" height="247"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fiy-HE-lKC" appends="YES" id="FV8-KR-2p7"/>
+                                    <outletCollection property="gestureRecognizers" destination="TB7-RS-IYP" appends="YES" id="h8t-70-ynz"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Route Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwE-1j-AwO">
                                 <rect key="frame" x="6" y="131" width="96" height="21"/>
@@ -152,6 +157,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FwR-wZ-QWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="fiy-HE-lKC">
+                    <connections>
+                        <action selector="handlePinch:" destination="pMu-mn-bB7" id="xGC-cY-EWY"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="TB7-RS-IYP">
+                    <connections>
+                        <action selector="handlePan:" destination="pMu-mn-bB7" id="jwI-Xw-wCc"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1217" y="556"/>
         </scene>
