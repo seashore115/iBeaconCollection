@@ -10,6 +10,12 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "MAConfirmButton.h"
 #import "MenuViewController.h"
+#import "ASIFormDataRequest.h"
+#import "UrlClass.h"
+#import "XYAlertViewHeader.h"
+#import "ASIProgressDelegate.h"
+
+
 
 @interface DisplayViewController ()
 @property(nonatomic,strong) MPMoviePlayerViewController *moviePlayer;
@@ -24,6 +30,7 @@
 @synthesize routeLineView = _routeLineView;
 @synthesize locationManager = _locationManager;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +39,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -74,6 +82,7 @@
     self.mapView.userInteractionEnabled = YES;
     self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
     [self.view addSubview:self.mapView];
+
     
     // configure location manager
     // [self configureLocationManager];
@@ -96,6 +105,23 @@
 }
 
 -(void)exitVideo{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    if ([paths count] > 0)
+    {
+        NSLog(@"Path: %@", [paths objectAtIndex:0]);
+        
+        NSError *error = nil;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        // Remove Documents directory and all the files
+        BOOL deleted = [fileManager removeItemAtPath:[paths objectAtIndex:0] error:&error];
+        
+        if (deleted != YES || error != nil)
+        {
+            // Deal with the error...
+        }
+        
+    }
     UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     MenuViewController *viewController = navigationController.viewControllers[0];
     [self presentViewController:navigationController animated:YES completion:nil];
@@ -118,7 +144,102 @@
 
 -(void)uploadVideo{
 
+    
+    NSString* floorPlanId=[[UrlClass sharedManager] floorPlan];
+    NSString *routeNameId=[[UrlClass sharedManager] currentRouteName];
+    NSArray* foo = [routeNameId componentsSeparatedByString: @" ~ "];
+    NSString* srcString = [foo objectAtIndex: 0];
+    NSString* src=[srcString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    NSString* dstString=[foo objectAtIndex:1];
+    NSString* dst=[dstString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+    NSLog(@"/n%@/n",dst);
+    NSString *urlString=[[[[[[NSString stringWithFormat:@"http://inav.zii.io/inav/%@",floorPlanId] stringByAppendingString:@"/"]stringByAppendingString:src]stringByAppendingString:@"/"] stringByAppendingString:dst] stringByAppendingString:@"/video"] ;
+    NSURL *dataUrl=[[NSURL alloc] initWithString:urlString];
+    NSLog(@"website---%@/n",urlString);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = nil;
+    filePath =[NSString stringWithFormat:@"%@/%@.mp4", documentsDirectory, fileName];
+    filePath=[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",fileName]];
+    NSString *textFile=nil;
+    textFile=[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt",fileName]];
+    
+    //PROGRESS
+
+    ASIFormDataRequest *request=[ASIFormDataRequest requestWithURL:dataUrl];
+    [request setDelegate:self];
+    [request setUploadProgressDelegate:self];
+    [request setFile:filePath forKey:@"videoFile" ];
+    [request setFile:textFile forKey:@"timeFile"];
+    [request setDidStartSelector:@selector(requestStarted:)];
+    [request setDidFinishSelector:@selector(requestFinished:)];
+    [request setDidFailSelector:@selector(requestFailed:)];
+    [request setTimeOutSeconds:500];
+    [request setShowAccurateProgress:YES];
+    [request startAsynchronous];
+
 }
+
+-(void)showProgress
+{
+    if (!aMBProgressHUD)
+        aMBProgressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+    
+    [self.view addSubview:aMBProgressHUD];
+    aMBProgressHUD.mode=MBProgressHUDModeDeterminateHorizontalBar;
+    aMBProgressHUD.labelText = @"Uploading Video";
+    [aMBProgressHUD show:YES];
+    [aMBProgressHUD showWhileExecuting:@selector(myProgressTask) onTarget:self withObject:nil animated:YES];
+}
+
+-(void)hideProgress
+{
+    [aMBProgressHUD hide:YES];
+    [aMBProgressHUD removeFromSuperview];
+    aMBProgressHUD=nil;
+}
+
+- (void)myProgressTask {
+	// This just increases the progress indicator in a loop
+	float progress = 0.0f;
+	while (progress < 1.0f) {
+		progress += 0.01f;
+		aMBProgressHUD.progress = progress;
+		usleep(50000);
+	}
+}
+
+
+- (void)requestStarted:(ASIHTTPRequest *)theRequest {
+    NSLog(@"response started new::%@",[theRequest responseString]);
+    [self showProgress];
+}
+
+
+-(void)requestFailed:(ASIHTTPRequest *)request
+{
+    [self hideProgress];
+    NSLog(@"Error %@", [request error]);
+    if ([request error]) {
+        
+        XYShowAlert(@"Upload file fails");
+        return;
+    }
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    [self hideProgress];
+    NSLog(@"%@",responseString);
+    XYShowAlert(@"Upload file succeeds");
+   
+    
+}
+
+
 
 - (void)viewDidUnload
 {
@@ -288,13 +409,13 @@
 #pragma mark MKMapViewDelegate
 - (void)mapView:(MKMapView *)mapView didAddOverlayViews:(NSArray *)overlayViews
 {
-    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
-    NSLog(@"overlayViews: %@", overlayViews);
+//    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
+//    NSLog(@"overlayViews: %@", overlayViews);
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
-    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
+//    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
     
 	MKOverlayView* overlayView = nil;
 	
@@ -347,8 +468,8 @@
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
-    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
-    NSLog(@"annotation views: %@", views);
+//    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
+//    NSLog(@"annotation views: %@", views);
 }
 
 /*
@@ -375,7 +496,7 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
+//    NSLog(@"%@ ----- %@", self, NSStringFromSelector(_cmd));
     
     CLLocation *location = [[CLLocation alloc] initWithLatitude:userLocation.coordinate.latitude
                                                       longitude:userLocation.coordinate.longitude];
@@ -398,7 +519,7 @@
     [_points addObject:location];
     _currentLocation = location;
     
-    NSLog(@"points: %@", _points);
+//    NSLog(@"points: %@", _points);
     
     [self configureRoutes];
     

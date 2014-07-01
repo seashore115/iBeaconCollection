@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "MBProgressHUD.h"
 
 @class MAConfirmButton;
 
@@ -36,6 +37,9 @@
     CLLocation* _currentLocation;
     
     
+    MBProgressHUD *aMBProgressHUD;
+    
+    
 }
 
 @property (nonatomic, retain) MKMapView* mapView;
@@ -44,7 +48,10 @@
 @property (nonatomic, retain) MKPolylineView* routeLineView;
 @property (nonatomic, retain) CLLocationManager* locationManager;
 @property(nonatomic,strong) NSString * fileName;
+@property(strong,nonatomic)IBOutlet  UIProgressView *progressIndicator;
+@property (strong,nonatomic) IBOutlet UILabel *progressLabel;
 
 -(void) configureRoutes;
+
 
 @end

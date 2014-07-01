@@ -214,7 +214,7 @@
         }
         NSString *text=@"";
         text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
-        NSString* textname=[NSString stringWithFormat:@"%@.text",[[UrlClass sharedManager]currentRouteName]];
+        NSString* textname=[NSString stringWithFormat:@"%@.txt",[[UrlClass sharedManager]currentRouteName]];
         NSString* textfile = [documentsPath stringByAppendingPathComponent:textname];
         NSError *textError=NULL;
         [text writeToFile:textfile atomically:YES encoding:NSUTF8StringEncoding error:&textError];
