@@ -38,6 +38,7 @@
 
 
 @implementation ViewController
+@synthesize zeroQuarter;
 @synthesize oneQuarter;
 @synthesize twoQuarter;
 @synthesize threeQuarter;
@@ -193,7 +194,7 @@
     dispatch_async(queue, ^{
         
 //        //Read File in local
-        NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//        NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 //        NSString* filename=[NSString stringWithFormat:@"%@.arff",[UrlClass sharedManager].floorPlan];
 //        NSString* foofile = [documentsPath stringByAppendingPathComponent:filename];
 //        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:foofile];
@@ -212,13 +213,35 @@
 //            [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
 //            NSLog(@"----%@",csvError);
 //        }
-        NSString *text=@"";
-        text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
-        NSString* textname=[NSString stringWithFormat:@"%@.txt",[[UrlClass sharedManager]currentRouteName]];
-        NSString* textfile = [documentsPath stringByAppendingPathComponent:textname];
-        NSError *textError=NULL;
-        [text writeToFile:textfile atomically:YES encoding:NSUTF8StringEncoding error:&textError];
-        NSLog(@"******%@",textError);
+//        NSString *text=@"";
+//        text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
+        NSString* floorPlanId=[[UrlClass sharedManager] floorPlan];
+        NSString *routeNameId=[[UrlClass sharedManager] currentRouteName];
+        NSArray* foo = [routeNameId componentsSeparatedByString: @" ~ "];
+        NSString* srcString = [foo objectAtIndex: 0];
+        NSString* dstString=[foo objectAtIndex:1];
+        NSMutableDictionary *videoTimestamp=[[NSMutableDictionary alloc]initWithCapacity:30];
+        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",zeroQuarter ] floatValue ]] forKey:@"0.0"];
+        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",oneQuarter ] floatValue ]] forKey:@"0.25"];
+        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",twoQuarter ] floatValue ]] forKey:@"0.50"];
+        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",threeQuarter ] floatValue ]] forKey:@"0.75"];
+        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",fourQuarter ] floatValue ]] forKey:@"1.0"];
+        NSMutableDictionary *dictionary=[[NSMutableDictionary alloc]initWithCapacity:50];
+        [dictionary setObject:floorPlanId forKey:@"floorplanId"];
+        [dictionary setObject:srcString forKey:@"srcLocationId"];
+        [dictionary setObject:dstString forKey:@"trgLocationId"];
+        [dictionary setObject:videoTimestamp forKey:@"videoTimestamp"];
+        if ([NSJSONSerialization isValidJSONObject:dictionary]) {
+            NSError *error;
+            //NSLog(@"1");
+            NSData *jsonData=[NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+            NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            NSString* textname=[NSString stringWithFormat:@"%@.json",[[UrlClass sharedManager]currentRouteName]];
+            NSString* textfile = [documentsPath stringByAppendingPathComponent:textname];
+            [jsonData writeToFile:textfile atomically:YES];
+        }
+       
+
 
        // outputString=@"";
         
@@ -404,7 +427,7 @@
     //    CGFloat desiredFps = 0.0;;
     switch (self.fpsControl.selectedSegmentIndex) {
         case 0:
-            flag=false;
+            zeroQuarter=[self.statusLabel.text doubleValue];
             break;
         case 1:
             oneQuarter= [self.statusLabel.text doubleValue];
@@ -420,16 +443,7 @@
             flag=true;
             break;
     }
-    if (flag==false) {
-//        for (int i=0; i<4; i++) {
-//             [self performSelector:@selector(beaconMessage) withObject:nil];
-//        }
-    }
   
-    NSLog(@"%f",oneQuarter);
-    NSLog(@"%f",twoQuarter);
-    NSLog(@"%f",threeQuarter);
-    NSLog(@"%f",fourQuarter);
     
 }
 - (IBAction)Exit:(id)sender {

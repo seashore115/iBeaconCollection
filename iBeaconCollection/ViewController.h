@@ -17,6 +17,7 @@
 @property(nonatomic) double twoQuarter;
 @property(nonatomic) double threeQuarter;
 @property(nonatomic) double fourQuarter;
+@property(nonatomic) double zeroQuarter;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (strong,nonatomic)NSString* xValue;
 @property (strong,nonatomic)NSString* yValue;

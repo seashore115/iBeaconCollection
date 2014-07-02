@@ -162,7 +162,7 @@
     filePath =[NSString stringWithFormat:@"%@/%@.mp4", documentsDirectory, fileName];
     filePath=[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",fileName]];
     NSString *textFile=nil;
-    textFile=[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt",fileName]];
+    textFile=[documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json",fileName]];
     
     //PROGRESS
 
