@@ -118,13 +118,13 @@
 //    trimName =[subName substringToIndex:[subName length]-1];
     
     //arff
-    NSString *outputRoomString=@"";
-    outputFrontString=@"";
-    outputFrontString=[[@"@relation " stringByAppendingString: [UrlClass sharedManager].floorPlan] stringByAppendingString: @"\n\n"];
-    outputFrontString=[outputFrontString stringByAppendingString: @"@attribute time date \"HH:mm:ss\"\n@attribute major numeric\n@attribute minor numeric\n@attribute distance numeric\n"];
-    outputRoomString=[@"@attribute room " stringByAppendingString: @"string\n"];
-    outputFrontString=[outputFrontString stringByAppendingString: outputRoomString];
-    outputFrontString=[[[[[outputFrontString  stringByAppendingString:@"@attribute x numeric\n"] stringByAppendingString: @"@attribute y numeric\n"] stringByAppendingString: @"@attribute z numeric\n"] stringByAppendingString: @"@attribute latitude numeric\n"] stringByAppendingString:@"@attribute longitude numeric\n\n@data\n"];
+//    NSString *outputRoomString=@"";
+//    outputFrontString=@"";
+//    outputFrontString=[[@"@relation " stringByAppendingString: [UrlClass sharedManager].floorPlan] stringByAppendingString: @"\n\n"];
+//    outputFrontString=[outputFrontString stringByAppendingString: @"@attribute time date \"HH:mm:ss\"\n@attribute major numeric\n@attribute minor numeric\n@attribute distance numeric\n"];
+//    outputRoomString=[@"@attribute room " stringByAppendingString: @"string\n"];
+//    outputFrontString=[outputFrontString stringByAppendingString: outputRoomString];
+//    outputFrontString=[[[[[outputFrontString  stringByAppendingString:@"@attribute x numeric\n"] stringByAppendingString: @"@attribute y numeric\n"] stringByAppendingString: @"@attribute z numeric\n"] stringByAppendingString: @"@attribute latitude numeric\n"] stringByAppendingString:@"@attribute longitude numeric\n\n@data\n"];
 }
 
 // ============================================================================
@@ -192,26 +192,26 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         
-        //Read File in local
+//        //Read File in local
         NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString* filename=[NSString stringWithFormat:@"%@.arff",[UrlClass sharedManager].floorPlan];
-        NSString* foofile = [documentsPath stringByAppendingPathComponent:filename];
-        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:foofile];
-        NSError *csvError = NULL;
-        if (fileExists) {
-            NSString *string=[NSString stringWithContentsOfFile:foofile encoding:NSUTF8StringEncoding error:nil];
-            outputString=[string stringByAppendingString:outputString];
-            NSLog(@"\n+++++\n\n%@\n",outputString);
-            [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
-            NSLog(@"******%@",csvError);
-        }else{
-            outputString=[outputFrontString stringByAppendingString:outputString];
-            //        outputString=[@"major,minor,distance,room,x,y,z,latitude,longitude\n" stringByAppendingString:outputString];
-//            NSLog(@"$$$$$%@",outputString );
-            NSLog(@"\n first time +++++\n\n%@\n",outputString);
-            [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
-            NSLog(@"----%@",csvError);
-        }
+//        NSString* filename=[NSString stringWithFormat:@"%@.arff",[UrlClass sharedManager].floorPlan];
+//        NSString* foofile = [documentsPath stringByAppendingPathComponent:filename];
+//        BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:foofile];
+//        NSError *csvError = NULL;
+//        if (fileExists) {
+//            NSString *string=[NSString stringWithContentsOfFile:foofile encoding:NSUTF8StringEncoding error:nil];
+//            outputString=[string stringByAppendingString:outputString];
+//            NSLog(@"\n+++++\n\n%@\n",outputString);
+//            [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
+//            NSLog(@"******%@",csvError);
+//        }else{
+//            outputString=[outputFrontString stringByAppendingString:outputString];
+//            //        outputString=[@"major,minor,distance,room,x,y,z,latitude,longitude\n" stringByAppendingString:outputString];
+////            NSLog(@"$$$$$%@",outputString );
+//            NSLog(@"\n first time +++++\n\n%@\n",outputString);
+//            [outputString writeToFile:foofile atomically:YES encoding:NSUTF8StringEncoding error:&csvError];
+//            NSLog(@"----%@",csvError);
+//        }
         NSString *text=@"";
         text=[[[[[[[text stringByAppendingString:[NSString stringWithFormat:@"%.3f",oneQuarter ]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",twoQuarter]] stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",threeQuarter]]stringByAppendingString:@","] stringByAppendingString:[NSString stringWithFormat:@"%.3f",fourQuarter]];
         NSString* textname=[NSString stringWithFormat:@"%@.txt",[[UrlClass sharedManager]currentRouteName]];
@@ -299,19 +299,19 @@
 }
 
 
--(void)beaconMessage{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"hh:mm:ss";
-    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-    time = [dateFormatter stringFromDate:now];
-    //Get Message
-    for (ESTBeacon *beacon in beaconArray) {
-        float rawDistance=[beacon.distance floatValue];
-        outputString=[outputString stringByAppendingFormat:@"%@,%i,%i,%.3f,%@,%.3f,%.3f,%.3f,%.3f,%.3f\n",time,[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,[UrlClass sharedManager].routeData,[xValue floatValue] ,[yValue floatValue],[zValue floatValue],[latitude floatValue],[longitude floatValue]];
-        NSLog(@"\n++++---- %@\n ",outputString);
-    }
-}
+//-(void)beaconMessage{
+//    NSDate *now = [NSDate date];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    dateFormatter.dateFormat = @"hh:mm:ss";
+//    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+//    time = [dateFormatter stringFromDate:now];
+//    //Get Message
+//    for (ESTBeacon *beacon in beaconArray) {
+//        float rawDistance=[beacon.distance floatValue];
+//        outputString=[outputString stringByAppendingFormat:@"%@,%i,%i,%.3f,%@,%.3f,%.3f,%.3f,%.3f,%.3f\n",time,[beacon.major unsignedShortValue],[beacon.minor unsignedShortValue],rawDistance,[UrlClass sharedManager].routeData,[xValue floatValue] ,[yValue floatValue],[zValue floatValue],[latitude floatValue],[longitude floatValue]];
+//        NSLog(@"\n++++---- %@\n ",outputString);
+//    }
+//}
 
 // =============================================================================
 #pragma mark - AVCaptureManagerDeleagte
@@ -421,9 +421,9 @@
             break;
     }
     if (flag==false) {
-        for (int i=0; i<4; i++) {
-             [self performSelector:@selector(beaconMessage) withObject:nil];
-        }
+//        for (int i=0; i<4; i++) {
+//             [self performSelector:@selector(beaconMessage) withObject:nil];
+//        }
     }
   
     NSLog(@"%f",oneQuarter);

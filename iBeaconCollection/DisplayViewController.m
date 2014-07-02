@@ -527,5 +527,4 @@
     [self.mapView setCenterCoordinate:coordinate animated:YES];
 }
 
-
 @end
