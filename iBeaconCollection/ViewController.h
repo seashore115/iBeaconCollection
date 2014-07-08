@@ -13,11 +13,11 @@
         CLLocationManager *locationManager;
 }
 
-@property(nonatomic) double oneQuarter;
-@property(nonatomic) double twoQuarter;
-@property(nonatomic) double threeQuarter;
-@property(nonatomic) double fourQuarter;
-@property(nonatomic) double zeroQuarter;
+@property(nonatomic,strong) NSString *oneQuarter;
+@property(nonatomic,strong) NSString *twoQuarter;
+@property(nonatomic,strong) NSString *threeQuarter;
+@property(nonatomic,strong) NSString *fourQuarter;
+@property(nonatomic,strong) NSString *zeroQuarter;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (strong,nonatomic)NSString* xValue;
 @property (strong,nonatomic)NSString* yValue;

@@ -58,10 +58,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    oneQuarter=0.0;
-    twoQuarter=0.0;
-    threeQuarter=0.0;
-    fourQuarter=0.0;
+    oneQuarter=@"";
+    twoQuarter=@"";
+    threeQuarter=@"";
+    fourQuarter=@"";
     outputString=@"";
     flag=false;
  
@@ -221,11 +221,11 @@
         NSString* srcString = [foo objectAtIndex: 0];
         NSString* dstString=[foo objectAtIndex:1];
         NSMutableDictionary *videoTimestamp=[[NSMutableDictionary alloc]initWithCapacity:30];
-        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",zeroQuarter ] floatValue ]] forKey:@"0.0"];
-        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",oneQuarter ] floatValue ]] forKey:@"0.25"];
-        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",twoQuarter ] floatValue ]] forKey:@"0.50"];
-        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",threeQuarter ] floatValue ]] forKey:@"0.75"];
-        [videoTimestamp setObject: [NSNumber numberWithFloat:[[NSString  stringWithFormat:@"%.3f",fourQuarter ] floatValue ]] forKey:@"1.0"];
+        [videoTimestamp setObject: zeroQuarter forKey:@"0.0"];
+        [videoTimestamp setObject: oneQuarter  forKey:@"0.25"];
+        [videoTimestamp setObject: twoQuarter forKey:@"0.50"];
+        [videoTimestamp setObject: threeQuarter forKey:@"0.75"];
+        [videoTimestamp setObject: fourQuarter forKey:@"1.0"];
         NSMutableDictionary *dictionary=[[NSMutableDictionary alloc]initWithCapacity:50];
         [dictionary setObject:floorPlanId forKey:@"floorplanId"];
         [dictionary setObject:srcString forKey:@"srcLocationId"];
@@ -422,29 +422,44 @@
 - (IBAction)fpsChanged:(UISegmentedControl *)sender {
     
     // Switch FPS
-    
+    NSInteger zeroCnt, firstCnt, secondCnt, thirdCnt, fourthCnt;
     
     //    CGFloat desiredFps = 0.0;;
     switch (self.fpsControl.selectedSegmentIndex) {
         case 0:
-            zeroQuarter=[self.statusLabel.text doubleValue];
+            zeroCnt= [self.statusLabel.text integerValue];
             break;
         case 1:
-            oneQuarter= [self.statusLabel.text doubleValue];
+            firstCnt= [self.statusLabel.text integerValue];
             break;
         case 2:
-            twoQuarter= [self.statusLabel.text doubleValue];
+            secondCnt= [self.statusLabel.text integerValue];
             break;
         case 3:
-            threeQuarter= [self.statusLabel.text doubleValue];
+            thirdCnt= [self.statusLabel.text integerValue];
             break;
         case 4:
-            fourQuarter= [self.statusLabel.text doubleValue];
+            fourthCnt= [self.statusLabel.text integerValue];;
             flag=true;
             break;
     }
-  
+    zeroQuarter=[self changeFormatter:zeroCnt];
+    oneQuarter=[self changeFormatter:firstCnt];
+    twoQuarter=[self changeFormatter:secondCnt];
+    threeQuarter=[self changeFormatter:thirdCnt];
+    fourQuarter=[self changeFormatter:fourthCnt];
+    NSLog(@"time---%@",zeroQuarter);
     
+    
+}
+
+-(NSString *)changeFormatter:(NSUInteger)elapsedSeconds{
+    NSUInteger h = elapsedSeconds / 3600;
+    NSUInteger m = (elapsedSeconds / 60) % 60;
+    NSUInteger s = elapsedSeconds % 60;
+    
+    NSString *formattedTime = [NSString stringWithFormat:@"%02lu:%02lu:%02lu", (unsigned long)h, (unsigned long)m, (unsigned long)s];
+    return formattedTime;
 }
 - (IBAction)Exit:(id)sender {
     UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Display"];
