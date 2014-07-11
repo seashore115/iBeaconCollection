@@ -11,6 +11,7 @@
 #import "UrlClass.h"
 #import "ImageViewController.h"
 #import <Foundation/Foundation.h>
+#import "CheckViewController.h"
 
 @interface DetailViewController ()
 @property (nonatomic,strong)  NSMutableArray *routeArray;
@@ -42,6 +43,7 @@
     self.navigationItem.leftBarButtonItem = backButton;
     self.navigationItem.rightBarButtonItem=[[MKUserTrackingBarButtonItem alloc]initWithMapView:self.mapView];
     self.mapView.userTrackingMode=MKUserTrackingModeFollow;
+    [self.tableView reloadData];
 //    NSLog(@"%@",levelName);
 
 }
@@ -55,6 +57,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _flabbyTableManager = [[BRFlabbyTableManager alloc] initWithTableView:_tableView];
     [_flabbyTableManager setDelegate:self];
     
@@ -102,7 +105,28 @@
             
         }
     }
+    [self checkMarker];
     
+}
+
+-(void)checkMarker{
+    NSString *checkUrlString = [[@"http://inav.zii.io/inav/" stringByAppendingString:[[UrlClass sharedManager] floorPlan]] stringByAppendingString:@"/path/status"];
+    NSData *allLocationData=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:checkUrlString]];
+    NSError *error;
+    NSMutableArray *allLocation = [NSJSONSerialization
+                                        JSONObjectWithData:allLocationData
+                                        options:kNilOptions
+                                        error:&error];
+    if( error )
+    {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    else {
+       NSDictionary * checkDict;
+        for (checkDict in allLocation) {
+            [[[UrlClass sharedManager] checkArray] addObject:[checkDict objectForKey:@"path"]];
+        }
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -138,6 +162,16 @@
     [cell setFlabbyColor:[self colorForIndexPath:indexPath]];
     cell.textLabel.text=[routeArray objectAtIndex:indexPath.row];
     cell.textLabel.font=[UIFont fontWithName:@"Arail" size:30.0f];
+    NSCharacterSet *doNotWant=[NSCharacterSet characterSetWithCharactersInString:@"~ "];
+    NSString *modifyString=cell.textLabel.text;
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    for (NSString *compareString in [[UrlClass sharedManager] checkArray]) {
+        modifyString=[modifyString stringByReplacingOccurrencesOfString:@" ~ " withString:@"-"];
+        NSString *cellString =[[modifyString  componentsSeparatedByCharactersInSet:doNotWant] componentsJoinedByString:@"-"];
+        if ([compareString isEqualToString:cellString]) {
+             [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        }
+    }
     return cell;
 }
 
@@ -163,16 +197,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     //    [self performSegueWithIdentifier:@"Detail" sender:self];
     //    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Image"];
-    ImageViewController *viewController = navigationController.viewControllers[0];
-    NSString *romeNameString=@"";
-    romeNameString=[[@"'" stringByAppendingString:[routeArray objectAtIndex:indexPath.row]] stringByAppendingString:@"'"];
-    [UrlClass sharedManager].currentRouteName=[routeArray objectAtIndex:indexPath.row];
-    [UrlClass sharedManager].routeData=romeNameString;
-    [self presentViewController:navigationController animated:YES completion:nil];
+    BRFlabbyTableViewCell *thisCell=[tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"11111");
+    if (thisCell.accessoryType==UITableViewCellAccessoryCheckmark) {
+//        NSLog(@"yes");
+        UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Check"];
 
+        CheckViewController *viewController;
+        viewController= navigationController.viewControllers[0];
+                NSLog(@"22222");
+        [UrlClass sharedManager].currentRouteName=[routeArray objectAtIndex:indexPath.row];
+        [self presentViewController:navigationController animated:YES completion:nil];
+        
+    }else{
+        UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"Image"];
+        ImageViewController *viewController;
+        viewController= navigationController.viewControllers[0];
+        NSString *romeNameString=@"";
+        romeNameString=[[@"'" stringByAppendingString:[routeArray objectAtIndex:indexPath.row]] stringByAppendingString:@"'"];
+        [UrlClass sharedManager].currentRouteName=[routeArray objectAtIndex:indexPath.row];
+        [UrlClass sharedManager].routeData=romeNameString;
+        [self presentViewController:navigationController animated:YES completion:nil];
+
+    }
+    
+   
     
 //    ImageViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Video"];
 //    NSString *romeNameString=@"";

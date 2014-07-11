@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18082810196F876D009F2F62 /* CheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1808280F196F876D009F2F62 /* CheckViewController.m */; };
 		181E28691961E06B008CD452 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E28681961E06B008CD452 /* CoreBluetooth.framework */; };
 		181E286B1961E07D008CD452 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E286A1961E07D008CD452 /* AudioToolbox.framework */; };
 		181E286D1961E08B008CD452 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 181E286C1961E08B008CD452 /* libz.dylib */; };
@@ -86,6 +87,7 @@
 		18792805194A2F27008443F5 /* Video-Icon-real.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792804194A2F27008443F5 /* Video-Icon-real.png */; };
 		18792807194A2FB1008443F5 /* Video_Icon-chu.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792806194A2FB1008443F5 /* Video_Icon-chu.png */; };
 		18792809194A6FE2008443F5 /* Video-Icon-x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18792808194A6FE2008443F5 /* Video-Icon-x.png */; };
+		1887477519703630002834AD /* DKCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1887477419703630002834AD /* DKCircleButton.m */; };
 		18B50BDD1961DE8600A369C4 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B50BAA1961DE8600A369C4 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18B50BDE1961DE8600A369C4 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B50BAD1961DE8600A369C4 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18B50BDF1961DE8600A369C4 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B50BAF1961DE8600A369C4 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -123,6 +125,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1808280E196F876D009F2F62 /* CheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckViewController.h; sourceTree = "<group>"; };
+		1808280F196F876D009F2F62 /* CheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckViewController.m; sourceTree = "<group>"; };
 		181E28681961E06B008CD452 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		181E286A1961E07D008CD452 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		181E286C1961E08B008CD452 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -240,6 +244,8 @@
 		18792804194A2F27008443F5 /* Video-Icon-real.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video-Icon-real.png"; sourceTree = "<group>"; };
 		18792806194A2FB1008443F5 /* Video_Icon-chu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video_Icon-chu.png"; sourceTree = "<group>"; };
 		18792808194A6FE2008443F5 /* Video-Icon-x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Video-Icon-x.png"; sourceTree = "<group>"; };
+		1887477319703630002834AD /* DKCircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCircleButton.h; sourceTree = "<group>"; };
+		1887477419703630002834AD /* DKCircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCircleButton.m; sourceTree = "<group>"; };
 		18B50BA91961DE8600A369C4 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		18B50BAA1961DE8600A369C4 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		18B50BAB1961DE8600A369C4 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -371,8 +377,6 @@
 		18270C7F193FB449007064A5 = {
 			isa = PBXGroup;
 			children = (
-				181E289D19630D83008CD452 /* MBProgressHUD.h */,
-				181E289E19630D83008CD452 /* MBProgressHUD.m */,
 				18B50BA81961DE6C00A369C4 /* Net */,
 				182DF7E019465F1E004EE702 /* Table */,
 				18270CFD1940FE20007064A5 /* Resources */,
@@ -424,6 +428,8 @@
 		18270C91193FB449007064A5 /* iBeaconCollection */ = {
 			isa = PBXGroup;
 			children = (
+				1808280E196F876D009F2F62 /* CheckViewController.h */,
+				1808280F196F876D009F2F62 /* CheckViewController.m */,
 				18EED28B194F33BD00ABC7F8 /* ImageViewController.h */,
 				18EED28C194F33BD00ABC7F8 /* ImageViewController.m */,
 				1845022A1947717000F641C0 /* UrlClass.h */,
@@ -520,6 +526,10 @@
 		18270CE21940D64F007064A5 /* UI Group */ = {
 			isa = PBXGroup;
 			children = (
+				1887477319703630002834AD /* DKCircleButton.h */,
+				1887477419703630002834AD /* DKCircleButton.m */,
+				181E289D19630D83008CD452 /* MBProgressHUD.h */,
+				181E289E19630D83008CD452 /* MBProgressHUD.m */,
 				181E28871961E772008CD452 /* XYAlertView.h */,
 				181E28881961E772008CD452 /* XYAlertView.m */,
 				181E28891961E772008CD452 /* XYAlertViewHeader.h */,
@@ -841,9 +851,11 @@
 				181E28901961E772008CD452 /* XYLoadingView.m in Sources */,
 				18B50BDE1961DE8600A369C4 /* ASIDataCompressor.m in Sources */,
 				181E288E1961E772008CD452 /* XYAlertView.m in Sources */,
+				18082810196F876D009F2F62 /* CheckViewController.m in Sources */,
 				18B50BEB1961DE8600A369C4 /* ASICloudFilesObjectRequest.m in Sources */,
 				182DF7E719465F1E004EE702 /* BRFlabbyTableManager.m in Sources */,
 				18270C98193FB449007064A5 /* main.m in Sources */,
+				1887477519703630002834AD /* DKCircleButton.m in Sources */,
 				182DF7E919465F1E004EE702 /* NSIndexPath+BRFlabbyTable.m in Sources */,
 				18B50BE11961DE8600A369C4 /* ASIFormDataRequest.m in Sources */,
 				18B50BDF1961DE8600A369C4 /* ASIDataDecompressor.m in Sources */,

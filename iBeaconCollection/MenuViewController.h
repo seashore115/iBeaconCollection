@@ -13,4 +13,5 @@
 @property (nonatomic,retain)NSString* floorPlanId;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,retain)NSString* titleChoose;
+
 @end

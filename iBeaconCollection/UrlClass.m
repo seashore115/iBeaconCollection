@@ -13,6 +13,7 @@
 @synthesize floorPlan;
 @synthesize currentRouteName;
 @synthesize routeData;
+@synthesize checkArray;
 + (instancetype) sharedManager {
     static UrlClass *sharedMyManager = nil;
     static dispatch_once_t onceToken;
@@ -29,6 +30,7 @@
         floorPlan=@"";
         currentRouteName=@"";
         routeData=@"";
+        checkArray=[[NSMutableArray alloc]initWithCapacity:100000];
     }
     return self;
 }

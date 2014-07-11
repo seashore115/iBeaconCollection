@@ -13,10 +13,12 @@
     NSString *floorPlan;
     NSString *currentRouteName;
     NSString *routeData;
+    NSMutableArray *checkArray;
 }
 @property(nonatomic,copy) NSString *defaultUrl;
 @property(nonatomic,copy) NSString *floorPlan;
 @property(nonatomic,copy) NSString *currentRouteName;
 @property(nonatomic,copy) NSString *routeData;
+@property(nonatomic,copy) NSMutableArray *checkArray;
 + (instancetype) sharedManager;
 @end

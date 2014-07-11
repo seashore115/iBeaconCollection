@@ -422,33 +422,42 @@
 - (IBAction)fpsChanged:(UISegmentedControl *)sender {
     
     // Switch FPS
-    NSInteger zeroCnt, firstCnt, secondCnt, thirdCnt, fourthCnt;
+    NSInteger zeroCnt=0, firstCnt=0, secondCnt=0, thirdCnt=0, fourthCnt=0;
     
     //    CGFloat desiredFps = 0.0;;
     switch (self.fpsControl.selectedSegmentIndex) {
         case 0:
             zeroCnt= [self.statusLabel.text integerValue];
+            zeroQuarter=[self changeFormatter:zeroCnt];
             break;
         case 1:
             firstCnt= [self.statusLabel.text integerValue];
+            oneQuarter=[self changeFormatter:firstCnt];
             break;
         case 2:
             secondCnt= [self.statusLabel.text integerValue];
+            twoQuarter=[self changeFormatter:secondCnt];
             break;
         case 3:
             thirdCnt= [self.statusLabel.text integerValue];
+            threeQuarter=[self changeFormatter:thirdCnt];
             break;
         case 4:
-            fourthCnt= [self.statusLabel.text integerValue];;
+            fourthCnt= [self.statusLabel.text integerValue];
+            fourQuarter=[self changeFormatter:fourthCnt];
             flag=true;
             break;
     }
-    zeroQuarter=[self changeFormatter:zeroCnt];
-    oneQuarter=[self changeFormatter:firstCnt];
-    twoQuarter=[self changeFormatter:secondCnt];
-    threeQuarter=[self changeFormatter:thirdCnt];
-    fourQuarter=[self changeFormatter:fourthCnt];
-    NSLog(@"time---%@",zeroQuarter);
+//    zeroQuarter=[self changeFormatter:zeroCnt];
+//    oneQuarter=[self changeFormatter:firstCnt];
+//    twoQuarter=[self changeFormatter:secondCnt];
+//    twoQuarter=[self changeFormatter:secondCnt];
+//    twoQuarter=[self changeFormatter:secondCnt];
+    NSLog(@"time0---%@",zeroQuarter);
+    NSLog(@"time1---%@",oneQuarter);
+    NSLog(@"time2---%@",twoQuarter);
+    NSLog(@"time3---%@",threeQuarter);
+    NSLog(@"time4---%@",fourQuarter);
     
     
 }
